@@ -1,29 +1,37 @@
-@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+@import "tailwindcss";
 
 :root {
-  --font-nunito: "Nunito Sans", sans-serif;
-  @apply bg-very-light-gray text-very-dark-blue;
+  @apply bg-bg-primary text-text-primary font-nunito;
 
-  --color-dark-blue-source: #2f3949;
-  --color-very-dark-blue-source: #13171b;
-  --color-dark-gray-source: #858585;
-  --color-very-light-gray-source: #fafafa;
-  --color-white-source: #ffffff;
+  /* 🌞 LIGHT MODE */
+  --color-bg-primary-source: hsl(0, 0%, 98%);
+  --color-bg-secondary-source: hsl(0, 0%, 100%);
+  --color-text-primary-source: hsl(200, 15%, 8%);
+  --color-text-secondary-source: hsl(0, 0%, 52%);
+  --color-text-accent-source: hsl(209, 23%, 22%);
+  --color-bg-input-source: hsl(0, 0%, 100%);
+  --color-bg-button-source: hsl(209, 23%, 22%);
 }
 
 .dark {
-  --color-dark-blue-source: #2f3949; /* Tetap digunakan untuk elemen */
-  --color-very-dark-blue-source: #ffffff; /* Dipakai untuk teks di dark mode */
-  --color-dark-gray-source: #2f3949; /* Input background di dark mode */
-  --color-very-light-gray-source: #202c37; /* Background utama dark mode */
-  --color-white-source: #13171b; /* Untuk teks aksen atau tombol */
+  /* 🌚 DARK MODE */
+  --color-bg-primary-source: hsl(207, 26%, 17%);
+  --color-bg-secondary-source: hsl(209, 23%, 22%);
+  --color-text-primary-source: hsl(0, 0%, 100%);
+  --color-text-secondary-source: hsl(0, 0%, 100%);
+  --color-text-accent-source: hsl(0, 0%, 100%);
+  --color-bg-input-source: hsl(209, 23%, 22%);
+  --color-bg-button-source: hsl(0, 0%, 100%);
 }
 
 @theme inline {
-  --color-dark-blue: var(--color-dark-blue-source);
-  --color-very-dark-blue: var(--color-very-dark-blue-source);
-  --color-dark-gray: var(--color-dark-gray-source);
-  --color-very-light-gray: var(--color-very-light-gray-source);
-  --color-white: var(--color-white-source);
+  --font-nunito: "Nunito Sans", sans-serif;
+  --color-bg-primary: var(--color-bg-primary-source);
+  --color-bg-secondary: var(--color-bg-secondary-source);
+  --color-text-primary: var(--color-text-primary-source);
+  --color-text-secondary: var(--color-text-secondary-source);
+  --color-text-accent: var(--color-text-accent-source);
+  --color-bg-input: var(--color-bg-input-source);
+  --color-bg-button: var(--color-bg-button-source);
 }
