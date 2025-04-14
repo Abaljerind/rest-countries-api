@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Countries = ({ searchCountry, selectedRegion }) => {
   const countries = useLoaderData();
@@ -38,7 +38,8 @@ const Countries = ({ searchCountry, selectedRegion }) => {
     <div className="grid gap-9 py-9">
       {displayCountries.map((country, index) => {
         return (
-          <div
+          <Link
+            to={`/detail/${country.alpha3Code}`}
             key={index + 1}
             className="bg-bg-secondary mx-auto w-[70%] overflow-hidden rounded-md shadow-md"
           >
@@ -66,7 +67,7 @@ const Countries = ({ searchCountry, selectedRegion }) => {
                 <span className="font-light">{country?.capital}</span>
               </p>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>
