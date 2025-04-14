@@ -33,7 +33,9 @@ const _alpha3Code = () => {
 
     const names = detail?.borders.map((code) => {
       const match = countryName?.find((country) => country.alpha3Code === code);
-      return match ? match.name : code;
+      return match
+        ? { code: match.alpha3Code, name: match.name }
+        : { code, name: code };
     });
 
     setBorderName(names);
@@ -117,12 +119,13 @@ const _alpha3Code = () => {
               <div className="mt-4 grid grid-cols-3 gap-2">
                 {borderNames.map((border, index) => {
                   return (
-                    <p
-                      className="bg-bg-secondary flex items-center justify-center rounded-xs py-1 text-center text-xs font-light shadow-md md:px-2 xl:px-1 xl:py-2 xl:text-sm"
+                    <Link
+                      to={`/detail/${border.code}`}
+                      className="bg-bg-secondary flex cursor-pointer items-center justify-center rounded-xs py-1 text-center text-xs font-light shadow-md md:px-2 xl:px-1 xl:py-2 xl:text-sm"
                       key={index + 1}
                     >
-                      {border}
-                    </p>
+                      {border.name}
+                    </Link>
                   );
                 })}
               </div>
