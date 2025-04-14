@@ -3,8 +3,6 @@ import { PiMagnifyingGlassBold } from "react-icons/pi";
 import Countries from "./Countries";
 import FilterRegion from "./FilterRegion";
 
-// TODO: buat komponen untuk detail country
-
 const CountrySearch = () => {
   const [searchCountry, setSearchCountry] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("Filter by Region");
