@@ -35,7 +35,7 @@ const Countries = ({ searchCountry, selectedRegion }) => {
       : filteredCountries;
 
   return (
-    <div className="grid gap-9 py-9">
+    <div className="grid gap-9 py-9 md:grid-cols-2">
       {displayCountries.map((country, index) => {
         return (
           <Link
