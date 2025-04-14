@@ -35,7 +35,7 @@ const Countries = ({ searchCountry, selectedRegion }) => {
       : filteredCountries;
 
   return (
-    <div className="grid gap-9 py-9 md:grid-cols-2">
+    <div className="grid gap-9 py-9 md:grid-cols-2 xl:grid-cols-4">
       {displayCountries.map((country, index) => {
         return (
           <Link
@@ -47,7 +47,7 @@ const Countries = ({ searchCountry, selectedRegion }) => {
               <img
                 src={country?.flag}
                 alt={country?.name}
-                className="w-full object-cover"
+                className="h-40 w-full object-cover"
               />
             </div>
             <div className="p-6">
