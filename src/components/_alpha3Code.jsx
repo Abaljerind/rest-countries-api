@@ -52,68 +52,74 @@ const _alpha3Code = () => {
 
         <div className="flex justify-center">
           <img
-            className="w-full"
+            className="w-full md:h-64 md:w-[65%] md:object-cover"
             src={detail?.flags.png}
             alt={`${detail?.name} Flag`}
           />
         </div>
 
-        <div>
-          <h2 className="mt-6 text-2xl font-extrabold">{detail?.name}</h2>
-          <div className="mt-4 flex flex-col gap-2">
-            <p className="text-sm font-bold">
-              Native Name:{" "}
-              <span className="font-light">{detail?.nativeName}</span>
-            </p>
-            <p className="text-sm font-bold">
-              Population:{" "}
-              <span className="font-light">
-                {detail?.population.toLocaleString()}
-              </span>
-            </p>
-            <p className="text-sm font-bold">
-              Region: <span className="font-light">{detail?.region}</span>
-            </p>
-            <p className="text-sm font-bold">
-              Sub Region:{" "}
-              <span className="font-light">{detail?.subregion}</span>
-            </p>
-            <p className="text-sm font-bold">
-              Capital: <span className="font-light">{detail?.capital}</span>
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-6 flex flex-col gap-2">
-          <p className="text-sm font-bold">
-            Top Level Domain:{" "}
-            <span className="font-light">{detail?.topLevelDomain}</span>
-          </p>
-          <p className="text-sm font-bold">
-            Currencies:{" "}
-            <span className="font-light">{detail?.currencies?.[0]?.name}</span>
-          </p>
-          <p className="text-sm font-bold">
-            Languages:{" "}
-            <span className="font-light">
-              {detail?.languages?.[0]?.nativeName}
-            </span>
-          </p>
-        </div>
-
-        <div className="mt-6">
-          <h3 className="text-sm font-bold">Border Countries:</h3>
-          <div className="mt-4 grid grid-cols-3 gap-2">
-            {borderNames.map((border, index) => {
-              return (
-                <p
-                  className="bg-bg-secondary flex items-center justify-center rounded-xs py-1 text-center text-xs font-light shadow-md"
-                  key={index + 1}
-                >
-                  {border}
+        <div className="md:mx-auto md:w-[65%]">
+          <div className="md:flex md:items-center md:justify-between">
+            <div>
+              <h2 className="mt-6 text-2xl font-extrabold">{detail?.name}</h2>
+              <div className="mt-4 flex flex-col gap-2">
+                <p className="text-sm font-bold">
+                  Native Name:{" "}
+                  <span className="font-light">{detail?.nativeName}</span>
                 </p>
-              );
-            })}
+                <p className="text-sm font-bold">
+                  Population:{" "}
+                  <span className="font-light">
+                    {detail?.population.toLocaleString()}
+                  </span>
+                </p>
+                <p className="text-sm font-bold">
+                  Region: <span className="font-light">{detail?.region}</span>
+                </p>
+                <p className="text-sm font-bold">
+                  Sub Region:{" "}
+                  <span className="font-light">{detail?.subregion}</span>
+                </p>
+                <p className="text-sm font-bold">
+                  Capital: <span className="font-light">{detail?.capital}</span>
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 flex flex-col gap-2">
+              <p className="text-sm font-bold">
+                Top Level Domain:{" "}
+                <span className="font-light">{detail?.topLevelDomain}</span>
+              </p>
+              <p className="text-sm font-bold">
+                Currencies:{" "}
+                <span className="font-light">
+                  {detail?.currencies?.[0]?.name}
+                </span>
+              </p>
+              <p className="text-sm font-bold">
+                Languages:{" "}
+                <span className="font-light">
+                  {detail?.languages?.[0]?.nativeName}
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6">
+            <h3 className="text-sm font-bold">Border Countries:</h3>
+            <div className="mt-4 grid grid-cols-3 gap-2">
+              {borderNames.map((border, index) => {
+                return (
+                  <p
+                    className="bg-bg-secondary flex items-center justify-center rounded-xs py-1 text-center text-xs font-light shadow-md md:px-2"
+                    key={index + 1}
+                  >
+                    {border}
+                  </p>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
