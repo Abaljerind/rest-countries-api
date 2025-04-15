@@ -65,10 +65,6 @@ I’ve really learned a lot from JavaScript, especially its OOP concepts. It was
 
 By the way, the code below is for getting an object with the values of code and name.
 
-```html
-<h1>Some codes I'm proud of</h1>
-```
-
 ```js
 const proudOfThisFunc = () => {
   const names = detail?.borders.map((code) => {
