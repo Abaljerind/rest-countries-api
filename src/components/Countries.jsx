@@ -35,13 +35,13 @@ const Countries = ({ searchCountry, selectedRegion }) => {
       : filteredCountries;
 
   return (
-    <div className="grid gap-9 py-9 md:grid-cols-2 xl:grid-cols-4">
+    <div className="grid gap-9 py-9 md:grid-cols-2 xl:grid-cols-4 xl:gap-20 xl:px-12">
       {displayCountries.map((country, index) => {
         return (
           <Link
             to={`/detail/${country.alpha3Code}`}
             key={index + 1}
-            className="bg-bg-secondary mx-auto w-[70%] overflow-hidden rounded-md shadow-md"
+            className="bg-bg-secondary mx-auto w-[70%] overflow-hidden rounded-md shadow-md transition-all duration-300 hover:scale-105 hover:shadow-2xl xl:w-[95%]"
           >
             <div>
               <img
