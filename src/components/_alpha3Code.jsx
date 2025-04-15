@@ -68,24 +68,24 @@ const _alpha3Code = () => {
                   {detail?.name}
                 </h2>
                 <div className="mt-4 flex flex-col gap-2">
-                  <p className="text-sm font-bold xl:text-base">
+                  <p className="p-text-format">
                     Native Name:{" "}
                     <span className="font-light">{detail?.nativeName}</span>
                   </p>
-                  <p className="text-sm font-bold xl:text-base">
+                  <p className="p-text-format">
                     Population:{" "}
                     <span className="font-light">
                       {detail?.population.toLocaleString()}
                     </span>
                   </p>
-                  <p className="text-sm font-bold xl:text-base">
+                  <p className="p-text-format">
                     Region: <span className="font-light">{detail?.region}</span>
                   </p>
-                  <p className="text-sm font-bold xl:text-base">
+                  <p className="p-text-format">
                     Sub Region:{" "}
                     <span className="font-light">{detail?.subregion}</span>
                   </p>
-                  <p className="text-sm font-bold xl:text-base">
+                  <p className="p-text-format">
                     Capital:{" "}
                     <span className="font-light">{detail?.capital}</span>
                   </p>
@@ -93,17 +93,17 @@ const _alpha3Code = () => {
               </div>
 
               <div className="mt-6 flex flex-col gap-2">
-                <p className="text-sm font-bold xl:text-base">
+                <p className="p-text-format">
                   Top Level Domain:{" "}
                   <span className="font-light">{detail?.topLevelDomain}</span>
                 </p>
-                <p className="text-sm font-bold xl:text-base">
+                <p className="p-text-format">
                   Currencies:{" "}
                   <span className="font-light">
                     {detail?.currencies?.[0]?.name}
                   </span>
                 </p>
-                <p className="text-sm font-bold xl:text-base">
+                <p className="p-text-format">
                   Languages:{" "}
                   <span className="font-light">
                     {detail?.languages?.[0]?.nativeName}
@@ -113,9 +113,7 @@ const _alpha3Code = () => {
             </div>
 
             <div className="mt-6">
-              <h3 className="text-sm font-bold xl:text-base">
-                Border Countries:
-              </h3>
+              <h3 className="p-text-format">Border Countries:</h3>
               <div className="mt-4 grid grid-cols-3 gap-2">
                 {borderNames.map((border, index) => {
                   return (
