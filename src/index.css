@@ -14,6 +14,10 @@
   --color-bg-button-source: hsl(209, 23%, 22%);
 }
 
+.p-text-format {
+  @apply text-sm font-bold xl:text-base;
+}
+
 .dark {
   /* 🌚 DARK MODE */
   --color-bg-primary-source: hsl(207, 26%, 17%);
