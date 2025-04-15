@@ -26,23 +26,23 @@ const FilterRegion = ({ selectedRegion, setSelectedRegion }) => {
         </button>
       </div>
 
-      {isOpen && (
-        <div className="absolute mt-2 w-[55%] drop-shadow-sm md:w-full">
-          <ul className="bg-bg-secondary cursor-pointer rounded-md px-4 py-2">
-            {regions.map((region) => {
-              return (
-                <li
-                  className="mt-1.5 text-sm"
-                  key={region}
-                  onClick={() => handleSelect(region)}
-                >
-                  {region}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
+      <div
+        className={`absolute mt-2 w-[55%] origin-top ${isOpen ? "scale-y-100" : "scale-y-0"} drop-shadow-sm duration-300 md:w-full`}
+      >
+        <ul className="bg-bg-secondary cursor-pointer rounded-md px-4 py-2">
+          {regions.map((region) => {
+            return (
+              <li
+                className="mt-1.5 text-sm"
+                key={region}
+                onClick={() => handleSelect(region)}
+              >
+                {region}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };
