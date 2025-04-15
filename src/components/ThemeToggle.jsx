@@ -8,14 +8,14 @@ const ThemeToggle = () => {
     <div className="p-2">
       {darkMode ? (
         <button
-          className="flex cursor-pointer items-center"
+          className="flex cursor-pointer items-center xl:text-lg"
           onClick={() => setDarkMode((prevTheme) => !prevTheme)}
         >
           <IoMoon className="text-text-primary mr-2 text-lg" /> Dark Mode
         </button>
       ) : (
         <button
-          className="flex cursor-pointer items-center"
+          className="flex cursor-pointer items-center xl:text-lg"
           onClick={() => setDarkMode((prevTheme) => !prevTheme)}
         >
           <IoMoonOutline className="text-text-primary mr-2 text-lg" /> Dark Mode
