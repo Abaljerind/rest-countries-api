@@ -33,7 +33,7 @@ const FilterRegion = ({ selectedRegion, setSelectedRegion }) => {
           {regions.map((region) => {
             return (
               <li
-                className="mt-1.5 text-sm"
+                className="hover:bg-bg-primary mt-1.5 text-sm transition-all duration-200 hover:rounded-lg hover:px-4 hover:py-2"
                 key={region}
                 onClick={() => handleSelect(region)}
               >
