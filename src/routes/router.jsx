@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home />, loader: getAllCountries },
       {
-        path: "/detail/:alpha3Code",
+        path: "/detail/:cca3",
         element: <_alpha3Code />,
         loader: getAllCountries,
       },
