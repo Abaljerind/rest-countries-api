@@ -1,6 +1,6 @@
 export const getAllCountries = async () => {
   try {
-    const res = await fetch("https://restcountries.com/v2/all");
+    const res = await fetch(import.meta.env.VITE_RESTCOUNTRIES_API);
 
     if (!res.ok) {
       throw new Error("Fetch failed, check error message.");
