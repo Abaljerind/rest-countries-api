@@ -11,35 +11,47 @@ const _alpha3Code = () => {
   const [borderNames, setBorderName] = useState([]);
 
   useEffect(() => {
-    if (!params.alpha3Code) return;
+    if (!params.cca3) return;
 
     async function fetchDetail() {
       try {
         const res = await fetch(
-          `https://restcountries.com/v2/alpha/${params.alpha3Code}`,
+          `${import.meta.env.VITE_RESTCOUNTRIES_ALPHA_API}/${params.cca3}`,
         );
         const data = await res.json();
-        setDetail(data);
+        setDetail(data[0]);
       } catch (error) {
         console.log("Failed to fetch detail country.", error.message);
       }
     }
 
     fetchDetail();
-  }, [params.alpha3Code]);
+  }, [params.cca3]);
 
   useEffect(() => {
     if (!detail?.borders || !countryName?.length) return;
 
     const names = detail?.borders.map((code) => {
-      const match = countryName?.find((country) => country.alpha3Code === code);
+      const match = countryName?.find((country) => country.cca3 === code);
       return match
-        ? { code: match.alpha3Code, name: match.name }
+        ? { code: match.cca3, name: match.name.common }
         : { code, name: code };
     });
 
     setBorderName(names);
   }, [detail, countryName]);
+
+  const currencyNames = detail?.currencies
+    ? Object.values(detail.currencies)
+        .map((c) => c.name)
+        .join(", ")
+    : "N/A";
+
+  const languageNames = detail?.languages
+    ? Object.values(detail.languages).join(", ")
+    : "N/A";
+
+  const nativeName = detail?.name ? Object.values(detail.name)[1] : "N/A";
 
   return (
     <div>
@@ -55,9 +67,9 @@ const _alpha3Code = () => {
         <div className="xl:grid xl:grid-cols-2 xl:items-center">
           <div className="flex justify-center">
             <img
-              className="w-full md:h-64 md:w-[65%] md:object-cover xl:h-80 xl:w-[80%]"
+              className="w-full md:h-64 md:w-[65%] md:object-fill xl:h-80 xl:w-[80%]"
               src={detail?.flags.png}
-              alt={`${detail?.name} Flag`}
+              alt={`${detail?.flags.alt} Flag`}
             />
           </div>
 
@@ -65,12 +77,12 @@ const _alpha3Code = () => {
             <div className="md:flex md:items-center md:justify-between">
               <div>
                 <h2 className="mt-6 text-2xl font-extrabold xl:text-3xl">
-                  {detail?.name}
+                  {detail?.name.common}
                 </h2>
                 <div className="mt-4 flex flex-col gap-2">
                   <p className="p-text-format">
                     Native Name:{" "}
-                    <span className="font-light">{detail?.nativeName}</span>
+                    <span className="font-light">{nativeName}</span>
                   </p>
                   <p className="p-text-format">
                     Population:{" "}
@@ -87,7 +99,7 @@ const _alpha3Code = () => {
                   </p>
                   <p className="p-text-format">
                     Capital:{" "}
-                    <span className="font-light">{detail?.capital}</span>
+                    <span className="font-light">{detail?.capital[0]}</span>
                   </p>
                 </div>
               </div>
@@ -95,19 +107,14 @@ const _alpha3Code = () => {
               <div className="mt-6 flex flex-col gap-2">
                 <p className="p-text-format">
                   Top Level Domain:{" "}
-                  <span className="font-light">{detail?.topLevelDomain}</span>
+                  <span className="font-light">{detail?.tld}</span>
                 </p>
                 <p className="p-text-format">
                   Currencies:{" "}
-                  <span className="font-light">
-                    {detail?.currencies?.[0]?.name}
-                  </span>
+                  <span className="font-light">{currencyNames}</span>
                 </p>
                 <p className="p-text-format">
-                  Languages:{" "}
-                  <span className="font-light">
-                    {detail?.languages?.[0]?.nativeName}
-                  </span>
+                  Languages: <span className="font-light">{languageNames}</span>
                 </p>
               </div>
             </div>
